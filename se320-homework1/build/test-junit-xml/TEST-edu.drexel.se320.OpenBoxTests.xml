@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testsuite name="edu.drexel.se320.OpenBoxTests" tests="1" skipped="0" failures="0" errors="0" timestamp="2026-10-05T18:00:24.784Z" hostname="n3-86-54.dhcp.drexel.edu" time="0.003">
+  <properties/>
+  <testcase name="deleteThisOnceYouHaveYourOwnTests()" classname="edu.drexel.se320.OpenBoxTests" time="0.0"/>
+  <system-out><![CDATA[]]></system-out>
+  <system-err><![CDATA[]]></system-err>
+</testsuite>
