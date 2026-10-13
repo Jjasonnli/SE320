@@ -1,0 +1,34 @@
+Jason Li (jl4539@drexel.edu)
+SE320 Homework 1
+Write Up
+
+1. Testing Approach and Process
+I started with closed-box testing, not for any particular reason; I just chose to do it first. 
+Before writing my own tests, I ran the test suite like 5 times to see what the output looked like. 
+I then wrote my first test to check whether the search could find the first element and return its correct index. 
+After running that test, I added another test for the last element. I continued running the test suite after every test I added.
+
+From there, I kept asking what would happen with different inputs. 
+I tested finding an element in the middle, searching an array with only one element, and searching an empty array. 
+I also tested a two-element array by searching for each element separately. 
+Next, I checked what would happen if the array itself was null or if the search target was null.
+I then tested missing values, including a target larger than the largest element and one smaller than the smallest element. 
+After that, I checked whether binary search worked with negative numbers, an array containing both negative and positive numbers, 
+and a search for zero. I also tested duplicate values and an array where every element was the same. 
+For duplicates, I allowed any index containing the target to be returned. 
+Finally, I wrote tests to verify that the array remained unchanged after both successful and unsuccessful searches.
+
+After finishing the closed-box tests, I moved on to open-box testing. I looked at the implementation and added tests 
+that I believed would cover its branches, again running the suite after each addition. I checked the JaCoCo report after each run
+and continued adding tests until it showed 100% coverage: all 60 instructions, all 12 branches, and all 15 lines were covered, etc.
+
+2. Unsorted Arrays
+My approach to unsorted arrays was that it can either find the element by luck or throw a NoSuchElementException.
+If it returns an index, that index must be valid and contain the target.
+
+I created a test case 'unsorted_array_test()' which verifies this behavior by using an array where the integer '100'
+appears before smaller numbers ahead of it in the array. If the search returns an index, the test verifies that it 
+is within the array’s bounds and points to 100. If the search throws NoSuchElementException, the test checks that 
+the exception has a nonblank message. After either outcome, the test also verifies that the array has not changed. 
+
+3. Difference Between Open and Closed Box Testing
