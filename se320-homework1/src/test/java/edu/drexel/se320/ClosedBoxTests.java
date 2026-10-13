@@ -9,6 +9,11 @@ import static org.hamcrest.Matchers.lessThan;
 // Core JUnit 5
 import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.junit.jupiter.api.Assertions.assertThrows;
+import static org.junit.jupiter.api.Assertions.assertTrue;
+import static org.junit.jupiter.api.Assertions.assertArrayEquals;
+
+import java.beans.Transient;
+import java.util.NoSuchElementException;
 import org.junit.jupiter.api.Test;
 
 public class ClosedBoxTests extends BinarySearchBase {
@@ -40,6 +45,32 @@ public class ClosedBoxTests extends BinarySearchBase {
     public void test1() {
         // Delete this test once you're sure you can run the code.
         assertEquals(0, 0);
+    }
+    // all test cases uses integer values
+    @Test 
+    public void finds_first_element_test() {
+        Integer[] arr = { 0, 1, 2, 3, 4, 5, 6, 7, 8, 9 };
+        assertEquals(0, find(arr, 0));
+    }
+    @Test 
+    public void finds_last_element_test() {
+        Integer[] arr = { 0, 1, 2, 3, 4, 5, 6, 7, 8, 9 };
+        assertEquals(9, find(arr, 9));
+    }
+    @Test 
+    public void finds_middle_element_test() {
+        Integer[] arr = { 0, 1, 2, 3, 4, 5, 6, 7, 8, 9 };
+        assertEquals(5, find(arr, 5));
+    }
+    @Test 
+    public void only_one_element_test() {
+        Integer[] arr = { 0 };
+        assertEquals(0, find(arr, 0));
+    }
+    @Test 
+    public void rejects_empty_array_test() {
+        Integer[] arr = {};
+        assertThrows(IllegalArgumentException.class, () -> find(arr, 0));
     }
 
     @Test

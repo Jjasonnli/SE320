@@ -1,4 +1,5 @@
 package edu.drexel.se320;
+import java.util.NoSuchElementException;
 
 public class BinarySearch {
 
@@ -27,6 +28,6 @@ public class BinarySearch {
                 high = mid - 1;
             }
         }
-        throw new IllegalArgumentException("Element not found in the array");
+        throw new NoSuchElementException("Search does not find the element in the array");
     }
 }

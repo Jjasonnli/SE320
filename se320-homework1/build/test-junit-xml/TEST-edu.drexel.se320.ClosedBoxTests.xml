@@ -1,13 +1,18 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<testsuite name="edu.drexel.se320.ClosedBoxTests" tests="2" skipped="0" failures="1" errors="0" timestamp="2026-10-05T18:00:24.748Z" hostname="n3-86-54.dhcp.drexel.edu" time="0.035">
+<testsuite name="edu.drexel.se320.ClosedBoxTests" tests="7" skipped="0" failures="1" errors="0" timestamp="2026-10-13T00:21:46.439Z" hostname="Jasons-Air" time="0.039">
   <properties/>
-  <testcase name="testExceptions()" classname="edu.drexel.se320.ClosedBoxTests" time="0.022">
+  <testcase name="only_one_element_test()" classname="edu.drexel.se320.ClosedBoxTests" time="0.013"/>
+  <testcase name="testExceptions()" classname="edu.drexel.se320.ClosedBoxTests" time="0.012">
     <failure message="org.opentest4j.AssertionFailedError: expected: &lt;Bad Operation&gt; but was: &lt;Bad jasdf;lkasdjlfk&gt;" type="org.opentest4j.AssertionFailedError">org.opentest4j.AssertionFailedError: expected: &lt;Bad Operation&gt; but was: &lt;Bad jasdf;lkasdjlfk&gt;
 	at org.junit.jupiter.api.Assertions.assertEquals(Assertions.java:1199)
-	at edu.drexel.se320.ClosedBoxTests.testExceptions(ClosedBoxTests.java:62)
+	at edu.drexel.se320.ClosedBoxTests.testExceptions(ClosedBoxTests.java:93)
 </failure>
   </testcase>
-  <testcase name="test1()" classname="edu.drexel.se320.ClosedBoxTests" time="0.003"/>
+  <testcase name="finds_last_element_test()" classname="edu.drexel.se320.ClosedBoxTests" time="0.0"/>
+  <testcase name="finds_first_element_test()" classname="edu.drexel.se320.ClosedBoxTests" time="0.001"/>
+  <testcase name="rejects_empty_array_test()" classname="edu.drexel.se320.ClosedBoxTests" time="0.0"/>
+  <testcase name="test1()" classname="edu.drexel.se320.ClosedBoxTests" time="0.0"/>
+  <testcase name="finds_middle_element_test()" classname="edu.drexel.se320.ClosedBoxTests" time="0.001"/>
   <system-out><![CDATA[]]></system-out>
   <system-err><![CDATA[]]></system-err>
 </testsuite>
