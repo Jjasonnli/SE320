@@ -40,12 +40,6 @@ public class ClosedBoxTests extends BinarySearchBase {
         find(arr2, "c");
 
     }
-
-    @Test
-    public void test1() {
-        // Delete this test once you're sure you can run the code.
-        assertEquals(0, 0);
-    }
     // all test cases uses integer values
     @Test 
     public void finds_first_element_test() {
@@ -54,13 +48,13 @@ public class ClosedBoxTests extends BinarySearchBase {
     }
     @Test 
     public void finds_last_element_test() {
-        Integer[] arr = { 0, 1, 2, 3, 4, 5, 6, 7, 8, 9 };
-        assertEquals(9, find(arr, 9));
+        Integer[] arr = { 0, 1, 2, 3, 4, 5, 6, 7, 8, 12 };
+        assertEquals(9, find(arr, 12));
     }
     @Test 
     public void finds_middle_element_test() {
-        Integer[] arr = { 0, 1, 2, 3, 4, 5, 6, 7, 8, 9 };
-        assertEquals(5, find(arr, 5));
+        Integer[] arr = { 0, 1, 2, 3, 4, 100, 101, 102, 103, 104 };
+        assertEquals(5, find(arr, 100));
     }
     @Test 
     public void only_one_element_test() {
@@ -72,26 +66,100 @@ public class ClosedBoxTests extends BinarySearchBase {
         Integer[] arr = {};
         assertThrows(IllegalArgumentException.class, () -> find(arr, 0));
     }
-
-    @Test
-    public void testExceptions() {
-        // Also delete this test after you understand how to check for exceptions.
-        Exception exception = assertThrows(UnsupportedOperationException.class,
-        /* The bit between this and the next comment is a 
-        * *lambda expression*: https://docs.oracle.com/javase/tutorial/java/javaOO/lambdaexpressions.html#syntax
-        * If you've taken PL, this is Java's lambda.
-        * If not, this is like special syntax for a function object with one method.
-        * Notice the form is:
-        *   _args_ -> { body }
-        * The body here simply throws an exception so you can see how the exception assertions work, but in general this is where you'd write code you expect to throw an exception when run.
-        */
-            () -> { throw new UnsupportedOperationException("Bad jasdf;lkasdjlfk"); }
-        /* end of lambda expression. The () at the beginning is the (empty)
-        * argument list of the lambda */
-        ); // <-- This is closing off the call to assertThrows
-        // Here you can use any methods on the Exception type to inspect whether the right exception was thrown.
-        assertEquals("Bad Operation", exception.getMessage());   
+    @Test 
+    public void NoSuchElementException_test() {
+        Integer[] arr = { 0, 1, 2, 3, 4, 5, 6, 7, 8, 9 };
+        assertThrows(NoSuchElementException.class, () -> find(arr, 10));
     }
+    @Test
+    public void finds_both_elements_in_two_element_array_test() {
+        Integer[] arr = {10, 20};
 
+        assertEquals(0, find(arr, 10));
+        assertEquals(1, find(arr, 20));
+    }  
+    @Test 
+    public void null_array_test() {
+        Integer[] arr = null;
+        assertThrows(IllegalArgumentException.class, () -> find(arr, 0));
+    }
+    @Test 
+    public void target_null_array_test() {
+        Integer[] arr = { 0, 1, 2, 3, 4, 5, 6, 7, 8, 9 };
+        assertThrows(IllegalArgumentException.class, () -> find(arr, null));
+    }
+    @Test 
+    public void target_higher_than_max_array_test() {
+        Integer[] arr = { 0, 1, 2, 3, 4, 5, 6, 7, 8, 9 };
+        assertThrows(NoSuchElementException.class, () -> find(arr, 10));
+    }
+    @Test
+    public void target_lower_than_min_array_test() {
+        Integer[] arr = { 0, 1, 2, 3, 4, 5, 6, 7, 8, 9 };
+        assertThrows(NoSuchElementException.class, () -> find(arr, -1));
+    }
+    @Test 
+    public void negative_numbers_test() {
+        Integer[] arr = { -10, -9, -8, -7, -6, -5, -4, -3, -2, -1 };
+        assertEquals(0, find(arr, -10));
+        assertEquals(9, find(arr, -1));
+        assertEquals(5, find(arr, -5));
+    }
+    @Test 
+    public void negative_and_positive_numbers_and_zero_test() {
+        Integer[] arr = { -10, -9, -8, -7, -6, -5, -4, -3, -2, -1, 0, 1, 2, 3, 4, 5 };
+        assertEquals(0, find(arr, -10));
+        assertEquals(15, find(arr, 5));
+        assertEquals(10, find(arr, 0));
+    }
+    @Test 
+    public void duplicate_numbers_test() {
+        Integer[] arr = { 0, 1, 2, 3, 4, 5, 5, 5, 6, 7, 8, 9 };
+        int index = find(arr, 5);
+        assertTrue(index == 5 || index == 6 || index == 7);
+    }
+    @Test 
+    public void target_between_two_elements_test() {
+        Integer[] arr = { 10, 20, 30};
+        assertThrows(NoSuchElementException.class, () -> find(arr, 15));
+    }
+    @Test 
+    public void all_elements_same_test() {
+        Integer[] arr = { 5, 5, 5, 5, 5, 5, 5, 5, 5, 5 };
+        int index = find(arr, 5);
+        assertTrue(index >= 0 && index <= 9);
+    }
+    @Test 
+    public void successful_search_does_not_modify_array_test() {
+        Integer[] arr = { 0, 1, 2, 3, 4, 5, 6, 7, 8, 9 };
+        Integer[] arrCopy = arr.clone();
+        find(arr, 5);
+        assertArrayEquals(arrCopy, arr);
+    }
+    @Test 
+    public void unsuccessful_search_does_not_modify_array_test() {
+        Integer[] arr = { 0, 1, 2, 3, 4, 5, 6, 7, 8, 9 };
+        Integer[] arrCopy = arr.clone();
+        assertThrows(NoSuchElementException.class, () -> find(arr, 10));
+        assertArrayEquals(arrCopy, arr);
+    }
+    @Test
+    public void unsorted_array_test() {
+        Integer[] arr = {0, 1, 2, 3, 4, 100, 6, 7, 8, 9};
+        Integer[] arrCopy = arr.clone();
+
+        // Unsorted input may return a matching index or report no match
+        try {
+            int index = find(arr, 100);
+
+            assertTrue(index >= 0 && index < arr.length);
+            assertEquals(Integer.valueOf(100), arr[index]);
+        } catch (NoSuchElementException exception) {
+            assertTrue(exception.getMessage() != null
+                && !exception.getMessage().isBlank());
+        }
+
+        assertArrayEquals(arrCopy, arr);
+    }
 }
 
