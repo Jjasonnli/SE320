@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testsuite name="edu.drexel.se320.OpenBoxTests" tests="6" skipped="0" failures="0" errors="0" timestamp="2026-10-13T01:43:46.962Z" hostname="Jasons-Air" time="0.043">
+  <properties/>
+  <testcase name="null_array_test()" classname="edu.drexel.se320.OpenBoxTests" time="0.02"/>
+  <testcase name="rejects_empty_array_test()" classname="edu.drexel.se320.OpenBoxTests" time="0.003"/>
+  <testcase name="target_null_array_test()" classname="edu.drexel.se320.OpenBoxTests" time="0.001"/>
+  <testcase name="deleteThisOnceYouHaveYourOwnTests()" classname="edu.drexel.se320.OpenBoxTests" time="0.001"/>
+  <testcase name="target_between_two_elements_test()" classname="edu.drexel.se320.OpenBoxTests" time="0.001"/>
+  <testcase name="finds_middle_element_test()" classname="edu.drexel.se320.OpenBoxTests" time="0.0"/>
+  <system-out><![CDATA[]]></system-out>
+  <system-err><![CDATA[]]></system-err>
+</testsuite>

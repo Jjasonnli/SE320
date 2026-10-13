@@ -2,7 +2,7 @@ Jason Li (jl4539@drexel.edu)
 SE320 Homework 1
 Write Up
 
-1. Testing Approach and Process
+# 1. Testing Approach and Process
 I started with closed-box testing, not for any particular reason; I just chose to do it first. 
 Before writing my own tests, I ran the test suite like 5 times to see what the output looked like. 
 I then wrote my first test to check whether the search could find the first element and return its correct index. 
@@ -22,7 +22,7 @@ After finishing the closed-box tests, I moved on to open-box testing. I looked a
 that I believed would cover its branches, again running the suite after each addition. I checked the JaCoCo report after each run
 and continued adding tests until it showed 100% coverage: all 60 instructions, all 12 branches, and all 15 lines were covered, etc.
 
-2. Unsorted Arrays
+# 2. Unsorted Arrays
 My approach to unsorted arrays was that it can either find the element by luck or throw a NoSuchElementException.
 If it returns an index, that index must be valid and contain the target.
 
@@ -31,4 +31,14 @@ appears before smaller numbers ahead of it in the array. If the search returns a
 is within the array’s bounds and points to 100. If the search throws NoSuchElementException, the test checks that 
 the exception has a nonblank message. After either outcome, the test also verifies that the array has not changed. 
 
-3. Difference Between Open and Closed Box Testing
+# 3. Difference Between Open and Closed Box Testing
+I wrote a lot more tests for closed-box testing than for open-box testing. With closed-box testing, 
+I kept thinking of different situations and asking what would happen, like if the array was empty, had duplicates, 
+contained negative numbers, or didn’t contain the target. I also checked that the search wouldn’t change the array.
+For open-box testing, I looked at the code and focused on getting each branch to run. It took fewer tests because one test 
+could cover several branches. For example, searching for a missing value between two elements covered moving in both directions 
+and leaving the loop without finding a match. Once the coverage report showed that all branches were covered, I stopped adding tests.
+The two approaches check different things. An implementation could return the correct index but change the array, 
+which my closed-box tests would catch. My open-box tests wouldn’t catch that because they don’t check the array afterward. 
+Open-box testing could also show me a branch I hadn’t tested yet, where a bug might still be hiding.
+Getting 100% coverage was the goal, but it didn’t mean I had tested every situation or that the code was completely correct.
