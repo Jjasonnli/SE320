@@ -41,12 +41,19 @@ public class PropertyTests extends BinarySearchBase {
 	    Integer[] arr = { x };
 	    return find(arr, x) == 0;
     }
+    // finds the element in a single element array
+    @Property
+    public boolean one_element_array_test(
+            @ForAll @Size(min = 1, max = 1) Integer[] array) {
+
+        return find(array, array[0]) == 0;
+    }
     @Property
     public boolean finds_first_value_test(
             @ForAll("sortedArrs") Integer[] array) {
         
-        // assume that the array is not empty
-        Assume.that(array.length > 0);
+        // assume that the array has at least two elements to verify we can find the first element
+        Assume.that(array.length >= 2);
 
         Integer target = array[0];
         int index = find(array, target);
@@ -59,7 +66,7 @@ public class PropertyTests extends BinarySearchBase {
     public boolean finds_last_value_test(
             @ForAll("sortedArrs") Integer[] array) {
         
-        // assume that the array has at least two elements
+        // assume that the array has at least two elements to verify we can find the last element
         Assume.that(array.length >= 2);
 
         Integer target = array[array.length - 1];
