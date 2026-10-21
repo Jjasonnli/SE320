@@ -41,7 +41,7 @@ public class PropertyTests extends BinarySearchBase {
 	    Integer[] arr = { x };
 	    return find(arr, x) == 0;
     }
-    // finds the element in a single element array
+    // finds the element in a single element array (uses the sortedArrs generator)
     @Property
     public boolean one_element_array_test(
             @ForAll @Size(min = 1, max = 1) Integer[] array) {
