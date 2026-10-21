@@ -1,0 +1,8 @@
+## 1
+Property-based testing was a bit easier for me compared to closed-box testing. I had a guideline for how the arrays were supposed to look, and they were all generated using the same rules, so testing was more straightforward. I also didn’t have to worry about designing each array correctly or whether an array I gave was actually testing what I wanted it to test. With closed-box testing, I had to figure those things out for each array test case myself.
+
+## 2
+For me, I would say reading a closed-box test suite would make unfamiliar software easier to understand. Each test gives you a specific input and the expected result. For example, comparing tests with unsorted arrays versus sorted arrays could show how the binary search program is expected to handle them. Compare that to property-based testing, where our generator only produces sorted arrays. You can still infer/assume that the program needs sorted arrays, but without explicit comments or naming conventions, you can't determine what should happen when the array is unsorted.
+
+## 3
+I believe if requirements were to be changed, changing a property-based test suite would be a lot easier than a closed-box test suite. For a property-based test suite, you'll have to change the **ONE** generator as well as the expected outcome, whereas, with a closed-box test suite, you'll have to redo all the individual test inputs and outcomes. 
