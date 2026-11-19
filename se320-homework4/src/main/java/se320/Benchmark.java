@@ -12,9 +12,9 @@ public class Benchmark {
 
     public static void main(String[] args) throws java.io.IOException {
         // logging
-        int reads = 5;
-        int inserts = 90;
-        int deletes = 5;
+        //int reads = 5;
+        //int inserts = 90;
+        //int deletes = 5;
         
         // read heavy
         //int reads = 90;
@@ -23,9 +23,9 @@ public class Benchmark {
         
         
         // read only
-        //int reads = 100;
-        //int inserts = 0;
-        //int deletes = 0;
+        int reads = 100;
+        int inserts = 0;
+        int deletes = 0;
         
         System.out.println("Attaching profiler: press Enter");
         System.in.read();
